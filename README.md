@@ -76,8 +76,11 @@ GROUP BY pizza_types.category ORDER BY quantity DESC;
 ```
 **Result:**
 | category | quantity |
-|----------|----------|
-| Classic  | XXX      |
+|----------|----------| 
+| Classisc | 14888 |
+| Supreme  | 11987     |
+| Veggie | 11649 |
+| Chicken | 11050 |
 
 ### 7. Distribution of orders by hour of the day
 ```sql
@@ -87,7 +90,21 @@ FROM orders GROUP BY hour;
 **Result:**
 | hour | order_count |
 |------|------------|
-| 12   | XXX        |
+| 11   | 1231       |
+|12|2520|
+|13|2455|
+|14|1472|
+|15|1468|
+|16|1920|
+|17| 2336|
+|18|2399|
+|19|2009|
+|20|1642|
+|21|1198|
+|22|663|
+|23|28|
+|10|8|
+|9|1|
 
 ### 8. Category-wise distribution of pizzas
 ```sql
@@ -96,7 +113,10 @@ SELECT category, COUNT(name) AS count FROM pizza_types GROUP BY category;
 **Result:**
 | category | count |
 |----------|-------|
-| Classic  | XXX   |
+| Chicken  | 6   |
+| Classic  | 8   |
+| Supreme  | 9   |
+|Veggie  |9   |
 
 ### 9. Average number of pizzas ordered per day
 ```sql
@@ -108,7 +128,7 @@ GROUP BY date) AS order_quantity;
 **Result:**
 | average_pizzas_ordered_per_day |
 |--------------------------------|
-| XXX                            |
+| 138                           |
 
 ### 10. Top 3 most ordered pizza types based on revenue
 ```sql
@@ -120,7 +140,9 @@ GROUP BY pizza_types.name ORDER BY revenue DESC LIMIT 3;
 **Result:**
 | name       | revenue |
 |-----------|---------|
-| Pizza XYZ | XXX.XX  |
+| The Thai Chicken Pizza | 43434.25  |
+|The Barbecue Chicken Pizza| 42768|
+|The California Chicken Pizza|41409.5|
 
 ### 11. Percentage contribution of each pizza type to total revenue
 ```sql
@@ -134,7 +156,10 @@ GROUP BY pizza_types.category ORDER BY revenue DESC;
 **Result:**
 | category | revenue (%) |
 |----------|------------|
-| Classic  | XX.XX      |
+| Classic  | 26.91     |
+|Supreme|25.46|
+|Chicken|23.96|
+|Veggie|23.68|
 
 ### 12. Cumulative revenue generated over time
 ```sql
@@ -146,8 +171,28 @@ GROUP BY orders.order_date) AS sales;
 ```
 **Result:**
 | order_date | cum_revenue |
-|------------|------------|
-| YYYY-MM-DD | XXX.XX      |
+|------------|-------------|
+| 01/01/15   | 2713.850002 |
+| 02/01/15   | 5445.750004 |
+| 03/01/15   | 8108.150007 |
+| 04/01/15   | 9863.600008 |
+| 05/01/15   | 11929.55001 |
+| 06/01/15   | 14358.50001 |
+| 07/01/15   | 16560.70001 |
+| 08/01/15   | 19399.05002 |
+| 09/01/15   | 21526.40002 |
+| 10/01/15   | 23990.35003 |
+| 11/01/15   | 25862.65003 |
+| 12/01/15   | 27781.70003 |
+| 13/01/15   | 29831.30003 |
+| 14/01/15   | 32358.70003 |
+| 15/01/15   | 34343.50003 |
+| 16/01/15   | 36937.65003 |
+| 17/01/15   | 39001.75003 |
+| 18/01/15   | 40978.60004 |
+| 19/01/15   | 43365.75004 |
+| 20/01/15   | 45763.65004 |
+| ...        | ...         |
 
 ### 13. Top 3 most ordered pizza types based on revenue for each category
 ```sql
@@ -161,9 +206,21 @@ GROUP BY pizza_types.category, pizza_types.name) AS a) AS b
 WHERE rn <= 3;
 ```
 **Result:**
-| category | name        | revenue |
-|----------|------------|---------|
-| Classic  | Pizza ABC  | XXX.XX  |
+| Category  | Name                              | Revenue    |
+|-----------|-----------------------------------|------------|
+| Chicken   | The Thai Chicken Pizza           | 43434.25   |
+| Chicken   | The Barbecue Chicken Pizza       | 42768      |
+| Chicken   | The California Chicken Pizza     | 41409.5    |
+| Classic   | The Classic Deluxe Pizza         | 38180.5    |
+| Classic   | The Hawaiian Pizza               | 32273.25   |
+| Classic   | The Pepperoni Pizza              | 30161.75   |
+| Supreme   | The Spicy Italian Pizza          | 34831.25   |
+| Supreme   | The Italian Supreme Pizza        | 33476.75   |
+| Supreme   | The Sicilian Pizza               | 30940.5    |
+| Veggie    | The Four Cheese Pizza            | 32265.701  |
+| Veggie    | The Mexicana Pizza               | 26780.75   |
+| Veggie    | The Five Cheese Pizza            | 26066.5    |
+
 
 ---
 
