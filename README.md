@@ -14,7 +14,7 @@ SELECT COUNT(order_id) AS total_orders FROM orders;
 **Result:**
 | total_orders |
 |-------------|
-| XXX         |
+| 21350         |
 
 ### 2. Calculate the total revenue generated from pizza sales
 ```sql
@@ -24,7 +24,7 @@ FROM order_details JOIN pizzas ON order_details.pizza_id = pizzas.pizza_id;
 **Result:**
 | total_sales |
 |------------|
-| XXX.XX     |
+| 817860.05    |
 
 ### 3. Identify the highest-priced pizza
 ```sql
@@ -35,7 +35,7 @@ ORDER BY pizzas.price DESC LIMIT 1;
 **Result:**
 | name       | price  |
 |-----------|--------|
-| Pizza XYZ | XX.XX  |
+| The Greek Pizza | 35.95  |
 
 ### 4. Identify the most common pizza size ordered
 ```sql
@@ -46,8 +46,11 @@ GROUP BY pizzas.size ORDER BY order_count DESC;
 **Result:**
 | size  | order_count |
 |-------|------------|
-| Large | XXX        |
-
+| L| 18526       |
+| M | 18526 |
+| S | 18526 |
+| XL | 544 |
+| XXL | 28 |
 ### 5. List the top 5 most ordered pizza types along with their quantities
 ```sql
 SELECT pizza_types.name, SUM(order_details.quantity) AS quantity
@@ -58,8 +61,11 @@ GROUP BY pizza_types.name ORDER BY quantity DESC LIMIT 5;
 **Result:**
 | name        | quantity |
 |------------|----------|
-| Pizza A    | XXX      |
-| Pizza B    | XXX      |
+| The Classic Deluxe Pizza    | 2453      |
+| The Barbecue Chicken Pizza    | 2432     |
+| The Hawaiian Pizza | 2422 |
+| The Pepperoni Pizza | 2418|
+| The Thai Chicken Pizza | 2371 |
 
 ### 6. Total quantity of each pizza category ordered
 ```sql
